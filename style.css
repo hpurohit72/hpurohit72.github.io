@@ -1,0 +1,263 @@
+/* =========================
+   GLOBAL RESET & VARIABLES
+   ========================= */
+
+:root {
+  /* DARK THEME DEFAULT */
+  --bg: #0f0f14;
+  --card: #1a1a24;
+  --text: #eaeaea;
+  --muted: #b5b5b5;
+  --accent: #8b5cf6;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+/* LIGHT THEME OVERRIDE */
+.light {
+  --bg: #f5f6fa;
+  --card: #ffffff;
+  --text: #1e1e1e;
+  --muted: #555;
+  --border: rgba(0, 0, 0, 0.08);
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background 0.4s ease, color 0.4s ease, transform 0.3s ease;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  scroll-behavior: smooth;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* =========================
+   PARTICLE CANVAS
+   ========================= */
+#particles {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 15, 20, 0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+nav {
+  max-width: 1100px;
+  margin: auto;
+  padding: 18px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav h1 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* THEME BUTTON */
+#themeToggle {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mantra {
+  font-size: 26px;
+  color: var(--accent);
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 12px var(--accent); }
+  50% { text-shadow: 0 0 30px var(--accent); }
+}
+
+.hero figure {
+  background: var(--card);
+  padding: 50px 40px;
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.hero img {
+  width: 750px;
+  border-radius: 25px;
+}
+
+.hero figcaption {
+  color: var(--muted);
+  font-size: 20px;
+}
+
+/* =========================
+   SECTIONS (CARDS)
+   ========================= */
+
+section {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 60px 35px;
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--border);
+}
+
+/* HEADINGS */
+section h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: var(--accent);
+}
+
+section p {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+section li {
+  color: var(--muted);
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+/* =========================
+   SCROLL REVEAL
+   ========================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 1s ease;
+}
+
+/* =========================
+   FORM
+   ========================= */
+
+form {
+  margin-top: 25px;
+}
+
+form input,
+form button {
+  width: 100%;
+  padding: 14px;
+  margin: 12px 0;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 15px;
+}
+
+form input::placeholder {
+  color: var(--muted);
+}
+
+form button {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+form button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* =========================
+   ANIMATIONS
+   ========================= */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 768px) {
+  nav ul { display: none; }
+  section { margin: 50px 15px; padding: 40px 25px; }
+  .hero figure { padding: 40px 25px; }
+  .hero img { width: 140px; }
+}
